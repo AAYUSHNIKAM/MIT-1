@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Voice Chat</title>
+</head>
+<body>
+    <div id="chatbox">
+        <!-- Chat messages will appear here -->
+    </div>
+    <button id="voiceButton">Start Voice Chat</button>
+
+    <script>
+        const chatbox = document.getElementById('chatbox');
+        const voiceButton = document.getElementById('voiceButton');
+        let isVoiceChatting = false;
+
+        // Function to handle voice chat start/stop
+        function toggleVoiceChat() {
+            if (!isVoiceChatting) {
+                // Start voice chat
+                isVoiceChatting = true;
+                voiceButton.innerText = 'Stop Voice Chat';
+
+                // Initialize voice chat logic here
+                // You can use Web Speech API or other speech recognition libraries
+                // to capture and process voice input.
+
+                // Example using Web Speech API:
+                const recognition = new webkitSpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+
+                recognition.onresult = (event) => {
+                    const result = event.results[event.results.length - 1];
+                    const transcript = result[0].transcript;
+                    const confidence = result[0].confidence;
+                    // Process the transcript and confidence score here
+                    // and send it to the chatbox.
+                    const message = document.createElement('p');
+                    message.textContent = `You said: "${transcript}" (Confidence: ${confidence})`;
+                    chatbox.appendChild(message);
+                };
+
+                recognition.start();
+            } else {
+                // Stop voice chat
+                isVoiceChatting = false;
+                voiceButton.innerText = 'Start Voice Chat';
+
+                // Stop and clean up voice chat logic here
+                // Example using Web Speech API:
+                recognition.stop();
+            }
+        }
+
+        // Attach the toggleVoiceChat function to the button click event
+        voiceButton.addEventListener('click', toggleVoiceChat);
+    </script>
+</body>
+</html>
+
+</body>
+</html>

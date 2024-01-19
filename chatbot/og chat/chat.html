@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Button used to open the chat form - fixed at the bottom of the page */
+    .open-button {
+      height: 62px;
+      background-size: cover;
+      background-image: url(Chat-box-button.png);
+      /* background-color: #555; */
+      /* color: white; */
+      padding: 16px 16px;
+      border: solid 2px black;
+      cursor: pointer;
+      opacity: 0.9;
+      position: fixed;
+      bottom: 64px;
+      right: 88px;
+      width: 62px;
+      border-radius: 50%;
+    }
+
+    .open-button:hover {
+      height: 64px;
+      background-size: cover;
+      background-image: url(Chat-box-button.png);
+      /* background-color: #555; */
+      /* color: white; */
+      padding: 16px 16px;
+      border: solid 2px black;
+      cursor: pointer;
+      opacity: 1.0;
+      position: fixed;
+      bottom: 62px;
+      right: 85px;
+      width: 64px;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    h1 {
+      display: block;
+      font-size: 24px;
+      margin-block-start: 0.67em;
+      margin-block-end: 0.67em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      left: 65px;
+      position: relative;
+      color: white;
+    }
+
+    /* The popup chat - hidden by default */
+    .chat-popup {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      right: 15px;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+    }
+
+    /* Add styles to the form container */
+    .form-container {
+      position: fixed;
+      max-width: 440px;
+      padding: 10px;
+      /* background-color: white; */
+      background-image: url(Background.png);
+      background-size: cover;
+      bottom: 60px;
+      right: 79px;
+      /* border: 2px solid orange; */
+      height: 556px;
+    }
+
+    /* Full-width textarea */
+    .form-container textarea {
+      height: 48px;
+      right: 71px;
+      border-radius: 8px;
+      position: relative;
+      top: 425px;
+      width: 323px;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+      resize: none;
+    }
+
+    /* When the textarea gets focus, do something */
+    .form-container textarea:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Set a style for the submit/send button */
+    .form-container .btn {
+      left: 278px;
+      top: 347px;
+      position: relative;
+      background-image: url(Send_button.png);
+      background-size: cover;
+      border-radius: 50%;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 39px;
+      height: 39px;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    .form-container .btn:hover {
+      left: 278px;
+      top: 347px;
+      position: relative;
+      background-image: url(Send_button.png);
+      background-size: cover;
+      border-radius: 50%;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 39px;
+      height: 39px;
+      margin-bottom: 10px;
+      transition: 0.3s;
+      opacity: 1.0;
+    }
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+      border: 0px solid #ea8f19;
+      left: 334px;
+      position: relative;
+      top: -127px;
+      background-image: url(close\ button.png);
+      height: 33px;
+      width: 33px;
+      border-radius: 50%;
+      background-size: cover;
+    }
+
+    .form-container .minimize {
+      border: 0px solid #ea8f19;
+      left: 260px;
+      position: relative;
+      top: -127px;
+      background-image: url(Help\ Button.png);
+      height: 33px;
+      width: 33px;
+      border-radius: 50%;
+      background-size: cover;
+    }
+
+    img.mainimg {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      position: absolute;
+      top: 8px;
+      left: 10px;
+    }
+
+    img.MultiLanguage {
+      position: absolute;
+      left: 341px;
+      top: 504px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+    }
+
+    img.Voice {
+      position: absolute;
+      left: 387px;
+      top: 504px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+    }
+
+    /* Add some hover effects to buttons */
+    /* .form-container .btn:hover,
+    .open-button:hover,
+    .open-button:hover  {
+      opacity: 1;
+     }  */
+  </style>
+</head>
+
+<body>
+
+  <h2>CHATBOX</h2>
+  <p>Lorem, Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt laborum at vel doloremque, quibusdam
+    distinctio harum officia in asperiores tempore eius ex ea! Aspernatur illo voluptas vel laborum natus dolores quia
+    optio nemo quaerat. Minus rem facilis nostrum explicabo quibusdam est quae, repudiandae saepe dolor delectus culpa
+    assumenda nemo accusamus! Dicta qui perspiciatis ipsum et sit, minima non similique expedita eos obcaecati accusamus
+    quae eveniet, ad dolore necessitatibus nobis, voluptatibus repellat magnam debitis! Doloremque animi non enim hic
+    eum recusandae delectus distinctio. Consequuntur obcaecati a error minus tempora magni vitae labore veritatis dicta
+    cum possimus, eos ipsam consectetur repellendus laborum distinctio, animi in voluptas? Quasi, sit ut pariatur
+    cupiditate id adipisci repudiandae repellendus aspernatur! Vel dolorem cumque dolor labore asperiores, cupiditate
+    quibusdam nam, et exercitationem error, libero ab odit itaque ipsa molestias hic autem consequatur voluptate tempore
+    laudantium. Fuga, suscipit dicta voluptates consequuntur nihil quaerat aliquam. Unde hic ducimus ut perspiciatis
+    nostrum vero qui illo debitis quis obcaecati possimus veniam maiores necessitatibus provident aperiam, temporibus
+    eum minima voluptate dolorum omnis ipsum quaerat. Reprehenderit odit optio ea aspernatur amet excepturi autem?
+    Numquam corrupti commodi aperiam perspiciatis, accusantium aliquam exercitationem quidem, quod eligendi rem sit
+    iusto impedit. Aliquid eos quisquam enim alias quis? Voluptatem ipsum eum quas ab, odit veritatis modi enim ad vero
+    porro culpa distinctio, amet dolor labore. Velit adipisci expedita, aliquam earum in voluptate deserunt quo soluta
+    quos asperiores esse, iste aliquid maiores eum tempora, doloribus natus nam at eos nesciunt quibusdam deleniti.
+    Similique itaque minus officiis qui culpa repudiandae laudantium tenetur repellendus obcaecati, ratione magni
+    aspernatur ex, fugit eius. Animi provident odio ipsam alias asperiores amet corrupti sequi, esse modi a obcaecati
+    ducimus commodi officia fugit et placeat dolorum porro. Reprehenderit aspernatur illo molestias magnam debitis
+    doloribus, aperiam quos autem. Quidem sequi est quibusdam numquam! Neque consectetur asperiores enim pariatur quas,
+    quae numquam voluptatum vitae officiis voluptatibus quasi corporis nostrum aspernatur! Magnam consectetur repellat,
+    quibusdam perferendis quidem dolore. Doloribus a error excepturi dolorum nemo dolorem dicta facere asperiores
+    consequuntur, enim aperiam omnis inventore? Consequatur veniam ea rerum ratione quia tenetur suscipit, ipsum laborum
+    distinctio vero hic accusamus voluptatem sunt corporis commodi vitae modi molestiae cupiditate pariatur! Tenetur
+    doloremque iusto beatae laboriosam eveniet reiciendis voluptate, fugit libero impedit autem, ullam cupiditate
+    aperiam consequuntur provident doloribus exercitationem. Doloribus qui voluptates quibusdam reprehenderit officia
+    repudiandae a asperiores officiis, eius dignissimos, distinctio natus laboriosam consequatur. Minima, magnam omnis?
+    Voluptate excepturi molestiae deserunt nisi necessitatibus, culpa neque ipsam earum pariatur eligendi similique
+    dolore illum? Quas iusto eum repellendus omnis pariatur incidunt officia asperiores, soluta corporis autem non vitae
+    quis cupiditate impedit reprehenderit, suscipit hic doloribus sint itaque neque odio. Est soluta rerum, magnam et
+    aut possimus labore dicta, quasi fugiat officia perferendis id alias harum. Veritatis dolor tempore aliquam nulla
+    pariatur nostrum optio amet obcaecati culpa, dicta ab rerum nihil, ut, voluptate dolores nobis deleniti voluptatibus
+    officiis velit? Praesentium facere quis nam neque, cum unde doloremque, id, eligendi illum fugiat cumque recusandae
+    animi sed voluptatem mollitia quas adipisci vel libero? Nobis, cumque maxime. ipsum dolor sit amet consectetur
+    adipisicing elit. Sit similique iusto doloremque delectus cumque, aspernatur, labore pariatur facilis veniam
+    praesentium voluptatum odit velit nesciunt libero et ab molestiae quasi quas minus nihil assumenda.</p>
+  <p>Lorem ipsum dollor sit amet, consectetur adipisicing elit. Quas error aut quam quaerat nesciunt, esse tenetur
+    repellendus eveniet omnis. Nobis, ex id sed sit quam laboriosam nesciunt perferendis a aliquid sint nostrum
+    mollitia. Molestiae quisquam facilis, saepe eius architecto expedita explicabo, maiores animi aliquam tempora cum
+    reiciendis similique neque natus error repellat deleniti repellendus laboriosam nihil quod autem porro vel. Vitae
+    quisquam fugiat quia eligendi magnam?</p>
+
+  <button class="open-button" onclick="openForm()"></button>
+
+  <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container"><!--<img src="Background.png" alt="">-->
+      <img class="mainimg" src="main_icon.png" alt="">
+      <h1>PGRKAM Assistant</h1>
+
+      <label for="msg"><b>message</b></label> <!-- message -->
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+
+      <button type="submit" class="btn"></button>
+      <button type="button" class="cancel" onclick="closeForm()"></button>
+      <button type="button" class="minimize" onclick="closeForm()"></button>
+
+      <img class="MultiLanguage" src="Multi-Language.png" alt="">
+      <img class="Voice" src="Voice Recognition.png" alt="">
+    </form>
+  </div>
+
+  <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>

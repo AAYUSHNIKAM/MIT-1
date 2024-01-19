@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+
+    <body>
+        <button id="openPopup">Open Pop-up</button>
+        <div id="popup" class="hidden">
+            <div class="popup-content">
+                <span id="closePopup" class="close-button">X</span>
+                <p>This is a pop-up dialog.</p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+
+    </html>
+
+    <script>
+        document.getElementById("openPopup").addEventListener("click", function () {
+            document.getElementById("popup").classList.remove("hidden");
+        });
+
+        document.getElementById("closePopup").addEventListener("click", function () {
+            document.getElementById("popup").classList.add("hidden");
+        });
+
+    </script>
+</body>
+
+</html>
